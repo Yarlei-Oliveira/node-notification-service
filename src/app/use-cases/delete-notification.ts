@@ -23,6 +23,10 @@ export class DeleteNotification {
     if (!notification) {
       throw new NotificationNotFound();
     }
+
+    notification.cancel();
+    await this.repository.save(notification);
+
     return { notification };
   }
 }

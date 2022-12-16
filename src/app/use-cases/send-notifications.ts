@@ -26,8 +26,6 @@ export class SendNotification {
 
     await this.repository.create(notification);
 
-    return {
-      notification,
-    };
+    return { notification };
   }
 }

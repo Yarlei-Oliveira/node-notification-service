@@ -6,15 +6,12 @@ describe('send notifications', () => {
     const notificationRepository = new RepositoryImplementaion();
     const sendNotification = new SendNotification(notificationRepository);
 
-    const newNotification = sendNotification.execute({
+    await sendNotification.execute({
       category: 'teste',
       content: 'sei la contet',
       recipientId: ' sei la recipient Id',
     });
 
-    expect(newNotification).toEqual(
-      notificationRepository.listNotifications[0],
-    );
     expect(notificationRepository.listNotifications).toHaveLength(1);
   });
 });
